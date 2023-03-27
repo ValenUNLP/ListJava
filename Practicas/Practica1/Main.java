@@ -9,7 +9,8 @@ public class P1B {
 		listarNumeros prueba1 = new listarNumeros(3,10);
 		multiplos prueba2;
 		test prueba3 = new test();
-
+		int[] arr4 = {1,2,3,4,5,6,9};
+		analisisArr prueba4 = new analisisArr(arr4);
 		
 		//Ej1
 		//prueba.listarConFor();
@@ -30,5 +31,27 @@ public class P1B {
 		
 		//prueba3.llenarProfesores();
 		//prueba3.leerProfesores();
+		
+		//Ej5
+		
+		System.out.println("Metodo de devolucion por arreglo: ");
+		System.out.println("Maximo: " + prueba4.devolverArr()[0]);
+		System.out.println("Minimo: " + prueba4.devolverArr()[1]);
+		System.out.println("Promedio " + prueba4.devolverArr()[2]);
+		
+		System.out.println("");
+		
+		System.out.println("Metodo de devolucion por parametro");
+		System.out.println("Maximo: " + prueba4.devolverValor("Maximo"));
+		System.out.println("Minimo: " + prueba4.devolverValor("Minimo"));
+		System.out.println("Promedio: " + prueba4.devolverValor("Promedio"));
+		
+		System.out.println("");
+		
+		System.out.println("Metodo de devolucion por getters");
+		prueba4.devolverGet();
+		System.out.println("Maximo: " + prueba4.getMax());
+		System.out.println("Minimo: " + prueba4.getMin());
+		System.out.println("Promedio: " + prueba4.getPromedio());
 	}
 }
