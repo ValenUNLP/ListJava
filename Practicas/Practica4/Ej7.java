@@ -10,25 +10,21 @@ public class RedDeAguaPotable {
 		this.Arbol = a;
 	}
 	
-	private double minimo(double caudal, ArbolGeneral<String> a, double min) {
+	private double minimo(double caudal, ArbolGeneral<String> a) {
 		double act;
-		if(!a.esVacio()) {
-
-			if(a.tieneHijos()) {
-				for (int i = 1; i <= a.getHijos().tamanio(); i++) {
-					act = minimo(caudal / a.getHijos().tamanio(), a.getHijos().elemento(i), min);
-					if(act < min) min = act;
-				}
-			}else {
-				if(caudal < min) return caudal;
-			}
+		double min = 9999;
+		if(a.esVacio()) return -1;
+		if(a.esHoja()) return caudal;
+		for (int i = 1; i <= a.getHijos().tamanio(); i++) {
+			act = minimo(caudal/a.getHijos().tamanio(),a.getHijos().elemento(i));
+			if(act <= min) min = act;
 		}
 		return min;
 	}
 	
 	public void minimoCaudal(double caudal) {
-		System.out.println(minimo(caudal, Arbol, caudal));
-		minimo(caudal, Arbol, caudal);
+		System.out.println(minimo(caudal, Arbol));
+		minimo(caudal, Arbol);
 	}
 	
 	public static void main(String[] args) {
@@ -60,7 +56,7 @@ public class RedDeAguaPotable {
 		
 		RedDeAguaPotable redAgua = new RedDeAguaPotable(a);
 		
-		redAgua.minimoCaudal(1000);
+		redAgua.minimoCaudal(3000);
 	}
 	
 }
